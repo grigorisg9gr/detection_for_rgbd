@@ -2,7 +2,7 @@ Information
 ===========
 
 This is the extension of DPM to include RGBD images. 
-This is the companion code-release to my thesis with title: "Deformable object detection with RGBD images"
+This is the companion code-release to my thesis with title: "Deformable object detection with RGBD images".
 
 To run the code and reproduce the results, you (may) need to modify the voc_config.m with the paths (file directory, database dir).
 

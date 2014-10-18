@@ -1,0 +1,29 @@
+function [ feat ] = features2(im,scale )
+%>greg, 23/9
+%This function will be used to concatenate the features of the rgb with the
+%depth ones. For now it just makes a call to features (that is adapted to
+%run bnoth for rgb and for the depth image). 
+
+%         featDepth= vl_hog(single(im), scale, 'verbose') ;
+%         featDepth(:,:,32)=0;
+%         feat=featDepth;
+% feat1=features_only_depth(im,scale);
+% feat=double(feat1);
+
+
+if 0,                                       %feat rgb, feat hog separetely
+    featRGB=features(im(:,:,1:3),scale);
+    featD=features_only_depth(im(:,:,4),scale);
+
+    % concatenate features: 
+    ftrgb=shiftdim(featRGB,2);
+    ftd=shiftdim(featD,2);
+    ft=[ftrgb;ftd];
+    feat=shiftdim(ft,1);
+else
+    feat=features_64(double(im),scale);
+end
+
+
+end
+

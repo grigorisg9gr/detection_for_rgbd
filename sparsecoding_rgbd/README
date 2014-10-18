@@ -1,0 +1,12 @@
+Information
+===========
+
+This is the extension of sparsecoding to include RGBD images.
+This is the companion code-release to my thesis with title: "Deformable object detection with RGBD images".
+
+To run the code and reproduce the results: 
+1) the code is in PASCAL directory, where you need to change the startup file to include your paths, globals_new() (in new_code_greg/) 
+2) run_hsc_pascal() is the main function 
+
+
+

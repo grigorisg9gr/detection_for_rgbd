@@ -1,0 +1,35 @@
+
+Three functions (run compile.m):
+
+features_hsc_1.m : the basic version, using |x| from OMP coding
+features_hsc_2.m : use +x and -x
+features_hsc_3.m : use |x|, +x, -x   (for PASCAL)
+
+To compute HSC features, first set up an encoder variable, then call features_hsc_1:
+
+patchsize=5;
+dicsize=100;
+load(['./dictionaries/bsds500_' num2str(patchsize) 'x' num2str(patchsize) '_first_' num2str(dicsize) '_spa1.mat'],'dic_first');
+
+encoder_gray=dic_first;
+encoder_gray.type='gray';
+encoder_gray.blocksize=8;
+encoder_gray.numblock=1;
+encoder_gray.sparsity=1;
+encoder_gray.power_trans=0.25;
+encoder_gray.pad_zero=0;
+encoder_gray.threshold=0.001;
+encoder_gray.norm=2; % 'L2';
+
+im=rand(300,300,3)*255;
+sbin=8;
+f=features_hsc_1( double(im),sbin,encoder_gray);
+
+where im is uint8 in [0,255], and sbin=8.
+
+There are many dictionary files in ./dictionaries. The naming convention is patch size (5x5), dictionary size (50), and at what sparsity level it is learned (spa=1).
+
+./modelsvd/ contains the SVD of the 297+3 features using root-only models on PASCAL, and an example how I use it.
+
+
+

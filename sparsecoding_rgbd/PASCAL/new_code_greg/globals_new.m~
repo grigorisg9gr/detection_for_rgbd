@@ -1,0 +1,4 @@
+%DB_BASE_DIR = '/home/grigoris/Documents/nyu/'; %greg, 21/11: opws se voc_config wste na diavazontai vaseis
+DB_BASE_DIR = '~/Databases/nyu/';
+DB_SPLIT= [DB_BASE_DIR 'ImageSets/Main_split1/'];
+

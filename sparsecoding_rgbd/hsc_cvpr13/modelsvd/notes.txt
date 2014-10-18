@@ -1,0 +1,15 @@
+
+set up
+  load modelsvd-voc-rootonly-omp5x5-297.mat U
+  model.svd=U(:,1:100);
+
+then, in detect.m, I do
+
+  [h,w,nf]=size(f);
+  f=reshape(f,h*w,nf);
+  f=f*model.svd;
+
+also see run_hsc_PASCAL.m
+
+
+
